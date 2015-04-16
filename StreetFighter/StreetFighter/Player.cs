@@ -15,12 +15,17 @@ namespace StreetFighter
         private string lastDir;
         private bool attacking;
 
-        public void HandleInput(KeyboardState keyboard)
+        public Player(Vector2 position, int frames)
+            : base(position, frames)
         {
-
+            this.speed = 100;
+            health = 100;
+            attacking = false;
+            isAlive = true;
+            kOCount = 0;
         }
 
-        public Player(Vector2 position, int frames) : base (position, frames)
+        public virtual void HandleInput(KeyboardState keyboard)
         {
 
         }
