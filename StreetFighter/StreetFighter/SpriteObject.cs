@@ -29,6 +29,12 @@ namespace StreetFighter
         private Dictionary<String, Animation> animations;
         public Rectangle collisionRect;
 
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+
         public SpriteObject(Vector2 position, int frames)
         {
 
@@ -66,7 +72,7 @@ namespace StreetFighter
 
         private bool PixelCollision()
         {
-
+            return false;
         }
 
         public void OnCollisionEnter(SpriteObject other)
