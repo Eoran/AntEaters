@@ -12,9 +12,37 @@ namespace StreetFighter
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private List<SpriteObject> allObjects;
-        private List<SpriteObject> objectsToAdd;
-        private List<SpriteObject> objectsToRemove;
+        private static List<SpriteObject> allObjects;
+        private static List<SpriteObject> objectsToAdd;
+        private static List<SpriteObject> objectsToRemove;
+        private static List<SpriteObject> collidingObjects;
+
+        public static List<SpriteObject> AllObjects
+        {
+            get { return allObjects; }
+            set { allObjects = value; }
+        }
+
+
+        public static List<SpriteObject> ObjectsToAdd
+        {
+            get { return objectsToAdd; }
+            set { objectsToAdd = value; }
+        }
+
+
+        public static List<SpriteObject> ObjectsToRemove
+        {
+            get { return objectsToRemove; }
+            set { objectsToRemove = value; }
+        }
+
+
+        public static List<SpriteObject> CollidingObjects
+        {
+            get { return Game1.collidingObjects; }
+            set { Game1.collidingObjects = value; }
+        }
 
         public Game1()
             : base()
