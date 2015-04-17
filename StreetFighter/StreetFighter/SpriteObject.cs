@@ -147,10 +147,10 @@ namespace StreetFighter
             {
                 for (int x = left; x < right; x++)
                 {
-                     Color colorA = animations[animName].Colors[currentIndex]
+                     Color colorA = animations[animName].Color[currentIndex]
                     [(x - CollisionRect.Left) + (y - CollisionRect.Top) * CollisionRect.Width];
 
-                    Color colorB = other.animations[other.animName].Colors[other.currentIndex]
+                    Color colorB = other.animations[other.animName].Color[other.currentIndex]
                     [(x - other.CollisionRect.Left) + (y - other.CollisionRect.Top) * other.CollisionRect.Width];
 
                     if(colorA.A != 0 && colorB.A != 0)
