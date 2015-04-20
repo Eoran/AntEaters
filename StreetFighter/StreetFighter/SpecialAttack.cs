@@ -16,6 +16,7 @@ namespace StreetFighter
         public SpecialAttack(string direction, Player player, Vector2 position, int frames) : base(position, frames)
         {
             speed = 50;
+<<<<<<< HEAD
         }
 
         public override void Update(GameTime gameTime)
@@ -50,16 +51,46 @@ namespace StreetFighter
         public override void OnCollisionEnter(SpriteObject other)
         {
             
+=======
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            velocity = Vector2.Zero;
+            velocity *= speed;
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Position += (velocity * deltaTime);
+
+            if (direction == "right")
+            {
+                velocity += new Vector2(1, 0);
+            }
+
+            else if (direction == "left")
+            {
+                velocity += new Vector2(-1, 0);
+            }
+
+            base.Update(gameTime);
+>>>>>>> 1d2e35d0aa40654c27ee761e25dc79cbe72ea2c1
         }
 
         public override void OnCollisionExit(SpriteObject other)
         {
+<<<<<<< HEAD
             
         }
 
         public override void AnimationDone(string name)
         {
             
+=======
+            texture = content.Load<Texture2D>(@"");
+
+            //SpecialAttack Animations
+
+            base.LoadContent(content);
+>>>>>>> 1d2e35d0aa40654c27ee761e25dc79cbe72ea2c1
         }
     }
 }
