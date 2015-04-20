@@ -12,8 +12,8 @@ namespace StreetFighter
         protected int health;
         protected bool isAlive;
         protected int kOCount;
-        private string lastDir;
-        private bool attacking;
+        public string lastDir;
+        public bool attacking;
 
         public Player(Vector2 position, int frames)
             : base(position, frames)
@@ -25,7 +25,7 @@ namespace StreetFighter
             kOCount = 0;
         }
 
-        public virtual void HandleInput(KeyboardState keyboard)
+        public abstract void HandleInput(KeyboardState keyboard)
         {
 
         }
