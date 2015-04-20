@@ -14,7 +14,7 @@ namespace StreetFighter
         private Vector2 position;
         private Vector2 origin;
         private int layer;
-        private int scale;
+        protected int scale;
         protected Color color;
         protected float speed;
         protected Vector2 velocity;
@@ -147,10 +147,10 @@ namespace StreetFighter
             {
                 for (int x = left; x < right; x++)
                 {
-                     Color colorA = animations[animName].Color[currentIndex]
+                     Color colorA = animations[animName].Colors[currentIndex]
                     [(x - CollisionRect.Left) + (y - CollisionRect.Top) * CollisionRect.Width];
 
-                    Color colorB = other.animations[other.animName].Color[other.currentIndex]
+                    Color colorB = other.animations[other.animName].Colors[other.currentIndex]
                     [(x - other.CollisionRect.Left) + (y - other.CollisionRect.Top) * other.CollisionRect.Width];
 
                     if(colorA.A != 0 && colorB.A != 0)

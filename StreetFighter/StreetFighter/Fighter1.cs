@@ -18,9 +18,9 @@ namespace StreetFighter
 
         public override void Update(GameTime gameTime)
         {
-            PlayAnimation("IdleRight");
-            
-            //HandleInput(Keyboard.GetState());
+            //PlayAnimation("IdleRight");
+
+            HandleInput(Keyboard.GetState());
 
             base.Update(gameTime);
         }
@@ -45,7 +45,7 @@ namespace StreetFighter
 
             CreateAnimation("IdleRight", 4, 9, 0, 33, 60, Vector2.Zero, 4, texture);
 
-            CreateAnimation("CrouchRight", 2, 9, 799, 33, 60, Vector2.Zero, 2, texture);
+            CreateAnimation("CrouchRight", 1, 9, 23, 33, 60, Vector2.Zero, 1, texture);
 
             PlayAnimation("IdleRight");
 

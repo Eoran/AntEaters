@@ -59,11 +59,7 @@ namespace StreetFighter
 
         public override void AnimationDone(string name)
         {
-            texture = content.Load<Texture2D>(@"");
 
-            //SpecialAttack Animations
-
-            base.LoadContent(content);
         }
     }
 }
