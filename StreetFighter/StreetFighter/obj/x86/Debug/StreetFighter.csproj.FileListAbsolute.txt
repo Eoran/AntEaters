@@ -28,3 +28,4 @@ C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Wind
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\StreetFighter.pdb
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.exe
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.pdb
+C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
