@@ -29,5 +29,20 @@ namespace StreetFighter
         {
 
         }
+
+        public override void OnCollisionEnter(SpriteObject other)
+        {
+            
+        }
+
+        public override void OnCollisionExit(SpriteObject other)
+        {
+            
+        }
+
+        public override void AnimationDone(string name)
+        {
+            
+        }
     }
 }

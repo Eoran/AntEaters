@@ -1,11 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace StreetFighter
 {
@@ -16,74 +16,40 @@ namespace StreetFighter
 
         }
 
-        public override void HandleInput(KeyboardState keyState)
+        public override void Update(GameTime gameTime)
         {
-            if (!attacking)
+            PlayAnimation("IdleRight");
+            
+            //HandleInput(Keyboard.GetState());
+
+            base.Update(gameTime);
+        }
+
+        public override void HandleInput(KeyboardState keyboard)
+        {
+            if(keyboard.IsKeyDown(Keys.S))
             {
-                if (keyState.IsKeyDown(Keys.D))
-                {
-                    //move right
-                    lastDir = "Right";
-                    velocity += new Vector2(1, 0);
-                }
-                if (keyState.IsKeyDown(Keys.A))
-                {
-                    //move left
-                    lastDir = "Left";
-                    velocity += new Vector2(-1, 0);
-                }
-                if (keyState.IsKeyDown(Keys.W))
-                {
-                    //Jump
-                    //ikke helt sikker på hvad vi gør her.
-                    lastDir = "Jump";
-                    velocity += new Vector2();
-                }
-                if (keyState.IsKeyDown(Keys.S))
-                {
-                    //crouch
-                    //ikke helt sikker på hvad vi gør her.
-                    lastDir = "Crouch";
-                    velocity += new Vector2();
-                }
-                if (attacking)
-                {
-                    if (keyState.IsKeyDown(Keys.Q))
-                    {
-                        //punch medium
-                    }
-                    if (keyState.IsKeyDown(Keys.E))
-                    {
-                        //punch ligth
-                    }
-                    if (keyState.IsKeyDown(Keys.R))
-                    {
-                        //punch Hard
-                    }
-                    if (keyState.IsKeyDown(Keys.Z))
-                    {
-                        //Kick medium
-                    }
-                    if (keyState.IsKeyDown(Keys.X))
-                    {
-                        //Kick Hard
-                    }
-                    if (keyState.IsKeyDown(Keys.R))
-                    {
-                        //Kick Light
-                    }
-                }
+                PlayAnimation("CrouchRight");
             }
+            else
+            {
+                PlayAnimation("IdleRight");
+            }
+
+            base.HandleInput(keyboard);
         }
 
-        public void Update(GameTime gameTime)
+        public override void LoadContent(ContentManager content)
         {
+            texture = content.Load<Texture2D>(@"Ryu");
 
-        }
+            CreateAnimation("IdleRight", 4, 9, 0, 33, 60, Vector2.Zero, 4, texture);
 
-        public void LoadContent(ContentManager content)
-        {
+            CreateAnimation("CrouchRight", 2, 9, 799, 33, 60, Vector2.Zero, 2, texture);
 
+            PlayAnimation("IdleRight");
+
+            base.LoadContent(content);
         }
     }
 }
