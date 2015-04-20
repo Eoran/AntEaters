@@ -8,7 +8,7 @@ using System.Text;
 
 namespace StreetFighter
 {
-    class SpriteObject
+    public abstract class SpriteObject
     {
         protected Texture2D texture;
         private Vector2 position;

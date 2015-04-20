@@ -1,2 +1,30 @@
 c:\users\josefine\documents\visual studio 2013\Projects\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
 C:\Users\KimLouise\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\Ryu.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.dll
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.xml
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.exe
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.pdb
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\StreetFighter.exe
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\StreetFighter.pdb
+C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.exe
+C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.pdb

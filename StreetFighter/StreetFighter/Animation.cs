@@ -30,17 +30,31 @@ namespace StreetFighter
             get { return rectangles; }
             set { rectangles = value; }
         }
-        private Color[][] color;
+        private Color[][] colors;
 
-        public Color[][] Color
+        public Color[][] Colors
         {
-            get { return color; }
-            set { color = value; }
+            get { return colors; }
+            set { colors = value; }
         }
 
-        public Animation(int frames, int posY, int xStartFrame, int width, int height, Vector2 offset, float finFps, Texture2D texture)
+        public Animation(int frames, int posY, int xStartFrame, int width, int height, Vector2 offset, float fps, Texture2D texture)
         {
+            rectangles = new Rectangle[frames];
 
+            colors = new Color[frames][];
+
+            for (int i = 0; i < frames; i++)
+            {
+                colors[i] = new Color[width * height];
+
+                rectangles[i] = new Rectangle((i + xStartFrame) * width, posY, width, height);
+
+                texture.GetData<Color>(0, rectangles[i], colors[i], 0, width * height);
+            }
+
+            this.fps = fps;
+            this.offset = offset;
         }
     }
 }
