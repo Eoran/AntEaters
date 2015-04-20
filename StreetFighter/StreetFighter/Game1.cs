@@ -48,6 +48,7 @@ namespace StreetFighter
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
+            allObjects = new List<SpriteObject>();
             Content.RootDirectory = "Content";
         }
 
@@ -60,7 +61,7 @@ namespace StreetFighter
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            allObjects.Add(new Fighter1(new Vector2(0, 0), 4));
             base.Initialize();
         }
 
@@ -74,6 +75,10 @@ namespace StreetFighter
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            foreach(SpriteObject obj in allObjects)
+            {
+                obj.LoadContent(Content);
+            }
         }
 
         /// <summary>
@@ -96,6 +101,10 @@ namespace StreetFighter
                 Exit();
 
             // TODO: Add your update logic here
+            foreach (SpriteObject obj in allObjects)
+            {
+                obj.Update(gameTime);
+            }
 
             base.Update(gameTime);
         }
@@ -109,6 +118,14 @@ namespace StreetFighter
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            foreach (SpriteObject obj in allObjects)
+            {
+                obj.Draw(spriteBatch);
+            }
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

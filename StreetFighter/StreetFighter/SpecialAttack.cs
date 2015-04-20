@@ -18,7 +18,7 @@ namespace StreetFighter
             speed = 50;
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             velocity = Vector2.Zero;
             velocity *= speed;
@@ -38,7 +38,26 @@ namespace StreetFighter
             base.Update(gameTime);
         }
 
-        public void LoadContent(ContentManager content)
+        public override void LoadContent(ContentManager content)
+        {
+            //texture = content.Load<Texture2D>(@"");
+
+            //SpecialAttack Animations
+
+            base.LoadContent(content);
+        }
+
+        public override void OnCollisionEnter(SpriteObject other)
+        {
+            
+        }
+
+        public override void OnCollisionExit(SpriteObject other)
+        {
+
+        }
+
+        public override void AnimationDone(string name)
         {
             texture = content.Load<Texture2D>(@"");
 
