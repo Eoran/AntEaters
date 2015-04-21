@@ -64,7 +64,10 @@ namespace StreetFighter
                 }
             }
 
+<<<<<<< HEAD
+=======
             //base.HandleInput(keyboard);
+>>>>>>> 80290d65dad31a27e44c8d74f566c74d425d431a
         }
 
         public override void LoadContent(ContentManager content)
