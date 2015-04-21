@@ -35,13 +35,19 @@ namespace StreetFighter
             if (direction == "right")
             {
                 velocity += new Vector2(1, 0);
+<<<<<<< .merge_file_a09380
+=======
                 PlayAnimation("FireBall");
+>>>>>>> .merge_file_a10032
             }
 
             else if (direction == "left")
             {
                 velocity += new Vector2(-1, 0);
+<<<<<<< .merge_file_a09380
+=======
                 PlayAnimation("FireBall");
+>>>>>>> .merge_file_a10032
             }
 
             base.Update(gameTime);
@@ -52,10 +58,14 @@ namespace StreetFighter
             //texture = content.Load<Texture2D>(@"");
 
             //SpecialAttack Animations
+<<<<<<< .merge_file_a09380
+
+=======
             texture = content.Load<Texture2D>(@"KenFireball");
             Texture2D textureFireBall = content.Load<Texture2D>(@"KenFireball");
 
             CreateAnimation("FireBall", 6, 0, 0, 49, 91, Vector2.Zero, 6, textureFireBall);
+>>>>>>> .merge_file_a10032
             base.LoadContent(content);
         }
 

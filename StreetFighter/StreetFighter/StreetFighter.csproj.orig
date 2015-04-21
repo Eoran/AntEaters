@@ -72,6 +72,7 @@
     <Content Include="Content\idle.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+<<<<<<< .merge_file_a10004
     <Content Include="Content\Ken fowardL.Punch.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -99,7 +100,9 @@
     <Content Include="Content\Kenwalking.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+=======
     <Content Include="Content\KenFireball.gif" />
+>>>>>>> .merge_file_a06488
     <Content Include="Content\L.punch.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
