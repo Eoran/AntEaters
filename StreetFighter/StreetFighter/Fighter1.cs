@@ -27,16 +27,44 @@ namespace StreetFighter
 
         public override void HandleInput(KeyboardState keyboard)
         {
-            if(keyboard.IsKeyDown(Keys.S))
+            if (!attacking)
             {
-                PlayAnimation("CrouchRight");
-            }
-            else
-            {
-                PlayAnimation("IdleRight");
+                if (keyboard.IsKeyDown(Keys.S))
+                {
+                    PlayAnimation("CrouchRight");
+                }
+                else
+                {
+                    PlayAnimation("IdleRight");
+                }                
+
+                if (keyboard.IsKeyDown(Keys.W))
+                {
+                    //Jump
+                    PlayAnimation("");
+                }
+                if (keyboard.IsKeyDown(Keys.A))
+                {
+                    //Left
+                    PlayAnimation("");
+                    velocity += new Vector2 (-1,0);
+                }
+                if (keyboard.IsKeyDown(Keys.D))
+                {
+                    PlayAnimation("");
+                    velocity += new Vector2(1, 0);
+                }
             }
 
-            base.HandleInput(keyboard);
+            if (attacking)
+            {
+                if (keyboard.IsKeyDown(Keys.Q))
+                {
+                    
+                }
+            }
+
+            //base.HandleInput(keyboard);
         }
 
         public override void LoadContent(ContentManager content)

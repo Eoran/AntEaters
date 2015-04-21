@@ -52,3 +52,5 @@ C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debu
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Josefine\Documents\Datamatiker\Ant-Eaters 2.semester projekt\Sourcetree\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.exe
+C:\Users\Josefine\Documents\Datamatiker\Ant-Eaters 2.semester projekt\Sourcetree\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.pdb
