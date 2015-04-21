@@ -36,7 +36,6 @@ namespace StreetFighter
                 PlayAnimation("IdleRight");
             }
 
-            base.HandleInput(keyboard);
         }
 
         public override void LoadContent(ContentManager content)

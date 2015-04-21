@@ -12,7 +12,14 @@ namespace StreetFighter
     {
         private string direction;
         private Player player;
+        DateTime cated = DateTime.Now;
 
+        public DateTime Cated
+        {
+            get { return cated;  }
+        }
+
+        public string TmpData { get; set; }
         public SpecialAttack(string direction, Player player, Vector2 position, int frames) : base(position, frames)
         {
             speed = 50;

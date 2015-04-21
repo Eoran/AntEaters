@@ -23,5 +23,10 @@ namespace StreetFighter
         {
 
         }
+
+        public override void HandleInput(Microsoft.Xna.Framework.Input.KeyboardState keyboard)
+        {
+        
+        }
     }
 }

@@ -52,3 +52,8 @@ C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debu
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\KimLouise\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.exe
+C:\Users\KimLouise\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.pdb
+C:\Users\KimLouise\Dropbox\Datamatiker\school projects\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.exe
+C:\Users\KimLouise\Dropbox\Datamatiker\school projects\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.pdb
+C:\Users\KimLouise\Dropbox\Datamatiker\school projects\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
