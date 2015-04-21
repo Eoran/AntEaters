@@ -35,11 +35,13 @@ namespace StreetFighter
             if (direction == "right")
             {
                 velocity += new Vector2(1, 0);
+                PlayAnimation("FireBall");
             }
 
             else if (direction == "left")
             {
                 velocity += new Vector2(-1, 0);
+                PlayAnimation("FireBall");
             }
 
             base.Update(gameTime);
@@ -50,7 +52,10 @@ namespace StreetFighter
             //texture = content.Load<Texture2D>(@"");
 
             //SpecialAttack Animations
+            texture = content.Load<Texture2D>(@"KenFireball");
+            Texture2D textureFireBall = content.Load<Texture2D>(@"KenFireball");
 
+            CreateAnimation("FireBall", 6, 0, 0, 49, 91, Vector2.Zero, 6, textureFireBall);
             base.LoadContent(content);
         }
 

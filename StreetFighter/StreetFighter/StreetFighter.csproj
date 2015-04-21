@@ -69,6 +69,7 @@
     <Content Include="Content\idle.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\KenFireball.gif" />
     <Content Include="Content\L.punch.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

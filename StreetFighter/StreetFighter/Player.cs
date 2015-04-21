@@ -15,6 +15,7 @@ namespace StreetFighter
         public string lastDir;
         public bool attacking;
 
+        
         public Player(Vector2 position, int frames)
             : base(position, frames)
         {
