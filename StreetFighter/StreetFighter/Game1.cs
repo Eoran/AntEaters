@@ -10,6 +10,14 @@ namespace StreetFighter
     /// </summary>
     public class Game1 : Game
     {
+        static int screenWidth;
+
+        public static int ScreenWidth
+        {
+            get { return Game1.screenWidth; }
+        }
+
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private static List<SpriteObject> allObjects;
@@ -49,6 +57,9 @@ namespace StreetFighter
         {
             graphics = new GraphicsDeviceManager(this);
             allObjects = new List<SpriteObject>();
+
+
+
             Content.RootDirectory = "Content";
         }
 
@@ -61,7 +72,10 @@ namespace StreetFighter
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            allObjects.Add(new Fighter1(new Vector2(0, 0), 4));
+            allObjects.Add(new Fighter1(new Vector2(100, 100), 4));
+
+            allObjects.Add(new Fighter2(new Vector2(700, 100), 4));
+
             base.Initialize();
         }
 

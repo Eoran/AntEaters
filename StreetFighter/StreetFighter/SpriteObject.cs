@@ -11,17 +11,17 @@ namespace StreetFighter
     public abstract class SpriteObject
     {
         protected Texture2D texture;
-        private Vector2 position;
+        protected Vector2 position;
         private Vector2 origin;
         private int layer;
         protected int scale;
         protected Color color;
         protected float speed;
         protected Vector2 velocity;
-        private Rectangle[] rectangles;
+        protected Rectangle[] rectangles;
         protected SpriteEffects effect;
         private int frame;
-        private int currentIndex;
+        protected int currentIndex;
         private float timeElapsed;
         protected float fps;
         private Vector2 offset;

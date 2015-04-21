@@ -59,3 +59,20 @@ C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debu
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\L.punch.gif
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\walking.gif
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\L.punch_S.png
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\Crouch.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\forwardH.Punch.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\fowardL.kick.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\idle.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\L.punch.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\L.punch_S.png
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\walking.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\Fireball.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\Ken fowardL.Punch.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\KenBlocking.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\KenCrouch.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\KenFireball.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\KenforwardH.Punch.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\KenforwardL.Kick.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\KenHadokenMove.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\KenIdle.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\Kenwalking.gif
