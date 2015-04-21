@@ -19,7 +19,7 @@ namespace StreetFighter
         protected float speed;
         protected Vector2 velocity;
         private Rectangle[] rectangles;
-        private SpriteEffects effect;
+        protected SpriteEffects effect;
         private int frame;
         private int currentIndex;
         private float timeElapsed;
@@ -76,7 +76,7 @@ namespace StreetFighter
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position + offset, rectangles[currentIndex], color, 0f, origin, scale, effect, layer);
+            spriteBatch.Draw(animations[animName].Texture, position + offset, rectangles[currentIndex], color, 0f, origin, scale, effect, layer);
         }
 
         public virtual void Update(GameTime gameTime)
@@ -103,12 +103,13 @@ namespace StreetFighter
         protected void PlayAnimation(string name)
         {
             animName = name;
-            rectangles = new Rectangle[animations[name].Rectangles.Length];
-            for (int i = 0; i < animations[name].Rectangles.Length; i++)
-            {
-                rectangles[i] = animations[name].Rectangles[i];
+            //rectangles = new Rectangle[animations[name].Rectangles.Length];
+            //for (int i = 0; i < animations[name].Rectangles.Length; i++)
+            //{
+            //    rectangles[i] = animations[name].Rectangles[i];
 
-            }
+            //}
+            rectangles = animations[name].Rectangles;
             offset = animations[name].Offset;
             fps = animations[name].Fps;
         }
@@ -147,7 +148,7 @@ namespace StreetFighter
             {
                 for (int x = left; x < right; x++)
                 {
-                     Color colorA = animations[animName].Colors[currentIndex]
+                    Color colorA = animations[animName].Colors[currentIndex]
                     [(x - CollisionRect.Left) + (y - CollisionRect.Top) * CollisionRect.Width];
 
                     Color colorB = other.animations[other.animName].Colors[other.currentIndex]

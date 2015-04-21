@@ -12,6 +12,12 @@ namespace StreetFighter
         private Vector2 offset;
         private float fps;
         private Rectangle[] rectangles;
+        private Texture2D texture;
+
+        public Texture2D Texture
+        {
+            get { return texture; }
+        }
 
         public Vector2 Offset
         {
@@ -41,6 +47,8 @@ namespace StreetFighter
         public Animation(int frames, int posY, int xStartFrame, int width, int height, Vector2 offset, float fps, Texture2D texture)
         {
             rectangles = new Rectangle[frames];
+
+            this.texture = texture;
 
             colors = new Color[frames][];
 

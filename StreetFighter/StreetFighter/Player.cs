@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace StreetFighter
 {
-    class Player : SpriteObject
+    abstract class Player : SpriteObject
     {
         protected int health;
         protected bool isAlive;
@@ -25,10 +25,7 @@ namespace StreetFighter
             kOCount = 0;
         }
 
-        public abstract void HandleInput(KeyboardState keyboard)
-        {
-
-        }
+        public abstract void HandleInput(KeyboardState keyboard);
 
         public override void OnCollisionEnter(SpriteObject other)
         {

@@ -13,7 +13,7 @@ namespace StreetFighter
     {
         public Fighter1(Vector2 position, int frames) : base(position, frames)
         {
-
+            attacking = false;
         }
 
         public override void Update(GameTime gameTime)
@@ -27,29 +27,49 @@ namespace StreetFighter
 
         public override void HandleInput(KeyboardState keyboard)
         {
-            if(keyboard.IsKeyDown(Keys.S))
+            if (!attacking)
             {
-                PlayAnimation("CrouchRight");
-            }
-            else
-            {
-                PlayAnimation("IdleRight");
-            }
+                if (keyboard.IsKeyDown(Keys.S))
+                {
+                    PlayAnimation("CrouchRight");
+                }
+                else if(keyboard.IsKeyDown(Keys.F))
+                {
+                    PlayAnimation("LPunch");
+                    
+                    attacking = true;
 
-            base.HandleInput(keyboard);
+                }
+                else
+                {
+                    PlayAnimation("IdleRight");
+                }
+            }
         }
 
         public override void LoadContent(ContentManager content)
         {
-            texture = content.Load<Texture2D>(@"Ryu");
+            texture = content.Load<Texture2D>(@"idle");
 
-            CreateAnimation("IdleRight", 4, 9, 0, 33, 60, Vector2.Zero, 4, texture);
+            CreateAnimation("IdleRight", 4, 0, 0, 50, 93, Vector2.Zero, 4, texture);
 
-            CreateAnimation("CrouchRight", 1, 9, 23, 33, 60, Vector2.Zero, 1, texture);
+            Texture2D textureCrouch = content.Load<Texture2D>(@"Crouch");
 
-            PlayAnimation("IdleRight");
+            CreateAnimation("CrouchRight", 1, 0, 1, 49, 91, Vector2.Zero, 1, textureCrouch);
+
+            Texture2D textureLPunch = content.Load<Texture2D>(@"L.punch_S");
+
+            CreateAnimation("LPunch", 3, 0, 0, 61, 94, Vector2.Zero, 3, textureLPunch);
 
             base.LoadContent(content);
+        }
+
+        public override void AnimationDone(string name)
+        {
+            if(name == "LPunch")
+            {
+                attacking = false;
+            }
         }
     }
 }
