@@ -28,6 +28,7 @@ namespace StreetFighter
         public override void HandleInput(KeyboardState keyboard)
         {
             if (!attacking)
+<<<<<<< HEAD
             {
                 if (keyboard.IsKeyDown(Keys.S))
                 {
@@ -39,6 +40,17 @@ namespace StreetFighter
                     
                     attacking = true;
 
+                }
+                else
+                {
+                    PlayAnimation("IdleRight");
+                }
+            }
+=======
+            {
+                if (keyboard.IsKeyDown(Keys.S))
+                {
+                    PlayAnimation("CrouchRight");
                 }
                 else
                 {
@@ -72,6 +84,7 @@ namespace StreetFighter
             }
 
             //base.HandleInput(keyboard);
+>>>>>>> 70d93321abd521ec3c7ecf26ac96d5a3f06ee77c
         }
 
         public override void LoadContent(ContentManager content)
