@@ -10,6 +10,8 @@ namespace StreetFighter
 {
     public abstract class SpriteObject
     {
+        protected bool colliding;
+        
         protected Texture2D texture;
         protected Vector2 position;
         private Vector2 origin;
@@ -66,6 +68,8 @@ namespace StreetFighter
             scale = 1;
             fps = 10;
 
+            colliding = false;
+
             animations = new Dictionary<string, Animation>();
         }
 
@@ -120,6 +124,9 @@ namespace StreetFighter
             {
                 if (obj != this && obj.GetType() != this.GetType() && obj.CollisionRect.Intersects(this.CollisionRect))
                 {
+
+                    colliding = true;
+
                     if (PixelCollision(obj))
                     {
                         if (!Game1.CollidingObjects.Exists(x => x == obj))
@@ -133,6 +140,11 @@ namespace StreetFighter
                         Game1.CollidingObjects.Remove(obj);
                         OnCollisionExit(obj);
                     }
+                }
+
+                else
+                {
+                    colliding = false;
                 }
             }
         }

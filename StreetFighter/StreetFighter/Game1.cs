@@ -156,6 +156,7 @@ namespace StreetFighter
             //Health bar
             spriteBatch.Draw(healthText, new Rectangle(10, 10, f1.Health * 3, 30), Color.White);
 
+            spriteBatch.Draw(healthText, new Rectangle(490 + ((100 - f2.Health) * 3), 10, f2.Health * 3, 30), Color.White);
 
             foreach (SpriteObject obj in allObjects)
             {

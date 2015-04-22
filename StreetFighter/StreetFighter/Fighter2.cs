@@ -58,16 +58,19 @@ namespace StreetFighter
         {
             if (!attacking)
             {
+                
                 if (keyboard.IsKeyDown(Keys.Down))
                 {
                     PlayAnimation("kenCrouchRight");
+                    Crouched = true;
                 }
                 else if (keyboard.IsKeyDown(Keys.L))
                 {
                     PlayAnimation("KenLPunch");
+                    curAtk = "LPunch";
                     attacking = true;
                 }
-                else if (keyboard.IsKeyDown(Keys.Left) && position.X > 0)
+                else if (keyboard.IsKeyDown(Keys.Left) && position.X > 0 && !colliding)
                 {
                     //Left
                     PlayAnimation("KenWalk");
@@ -81,15 +84,24 @@ namespace StreetFighter
                 else
                 {
                     PlayAnimation("KenIdleRight");
+                    Crouched = false;
                 }
             }
         }
 
         public override void OnCollisionEnter(SpriteObject other)
         {
-            if (other.AnimName == "LPunch")
+            if (attacking)
             {
-                Health -= 10;
+                if (curAtk == "LPunch")
+                {
+                    Fighter1 tempFighter = other as Fighter1;
+
+                    if (!tempFighter.Crouched)
+                    {
+                        tempFighter.Health -= 10;
+                    }
+                }
             }
         }
 

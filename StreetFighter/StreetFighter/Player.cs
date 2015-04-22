@@ -9,6 +9,16 @@ namespace StreetFighter
 {
     abstract class Player : SpriteObject
     {
+        protected string curAtk;
+        protected bool crouched;
+
+        public bool Crouched
+        {
+            get { return crouched; }
+            set { crouched = value; }
+        }
+
+
         private int health;
 
         public int Health
@@ -30,6 +40,7 @@ namespace StreetFighter
             attacking = false;
             isAlive = true;
             kOCount = 0;
+            crouched = false;
         }
 
         public abstract void HandleInput(KeyboardState keyboard);
