@@ -11,7 +11,10 @@ namespace StreetFighter
 {
     class Fighter1 : Player
     {
-        public Fighter1(Vector2 position, int frames) : base(position, frames)
+        List<SpecialAttack> specAttack = new List<SpecialAttack>();
+
+        public Fighter1(Vector2 position, int frames)
+            : base(position, frames)
         {
             attacking = false;
         }
@@ -20,7 +23,15 @@ namespace StreetFighter
         {
             //PlayAnimation("IdleRight");
 
+            velocity = Vector2.Zero;
+
             HandleInput(Keyboard.GetState());
+
+            velocity *= speed;
+
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            Position += (velocity * deltaTime);
 
             base.Update(gameTime);
         }
@@ -28,7 +39,6 @@ namespace StreetFighter
         public override void HandleInput(KeyboardState keyboard)
         {
             if (!attacking)
-<<<<<<< HEAD
             {
                 if (keyboard.IsKeyDown(Keys.S))
                 {
@@ -41,50 +51,36 @@ namespace StreetFighter
                     attacking = true;
 
                 }
-                else
-                {
-                    PlayAnimation("IdleRight");
-                }
-            }
-=======
-            {
-                if (keyboard.IsKeyDown(Keys.S))
-                {
-                    PlayAnimation("CrouchRight");
-                }
-                else
-                {
-                    PlayAnimation("IdleRight");
-                }                
-
-                if (keyboard.IsKeyDown(Keys.W))
-                {
-                    //Jump
-                    PlayAnimation("");
-                }
-                if (keyboard.IsKeyDown(Keys.A))
+                else if (keyboard.IsKeyDown(Keys.A) && position.X > 0)
                 {
                     //Left
-                    PlayAnimation("");
+                    PlayAnimation("Walk");
                     velocity += new Vector2 (-1,0);
                 }
-                if (keyboard.IsKeyDown(Keys.D))
+                else if (keyboard.IsKeyDown(Keys.D) && position.X < 800 - rectangles[currentIndex].Width)
                 {
-                    PlayAnimation("");
+                    PlayAnimation("Walk");
                     velocity += new Vector2(1, 0);
                 }
-            }
-
-            if (attacking)
-            {
-                if (keyboard.IsKeyDown(Keys.Q))
+                else
                 {
-                    
+<<<<<<< .merge_file_a11940
+                    PlayAnimation("IdleRight");
+                }   
+
+                //if (keyboard.IsKeyDown(Keys.W))
+                //{
+                //    //Jump
+                //    PlayAnimation("");
+                //}
+=======
+                    PlayAnimation("FireBall");
+                    specAttack.Add(SpecialAttackPool.Create(lastDir, this, new Vector2(position.X + rectangles[currentIndex].Width, position.Y - rectangles[currentIndex].Height / 2), 2));
                 }
+>>>>>>> .merge_file_a03976
             }
 
             //base.HandleInput(keyboard);
->>>>>>> 70d93321abd521ec3c7ecf26ac96d5a3f06ee77c
         }
 
         public override void LoadContent(ContentManager content)
@@ -101,12 +97,16 @@ namespace StreetFighter
 
             CreateAnimation("LPunch", 3, 0, 0, 61, 94, Vector2.Zero, 3, textureLPunch);
 
+            Texture2D textureWalk = content.Load<Texture2D>(@"walking");
+
+            CreateAnimation("Walk", 5, 0, 0, 48, 90, Vector2.Zero, 5 ,textureWalk);
+
             base.LoadContent(content);
         }
 
         public override void AnimationDone(string name)
         {
-            if(name == "LPunch")
+            if (name == "LPunch")
             {
                 attacking = false;
             }

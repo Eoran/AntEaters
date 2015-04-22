@@ -11,7 +11,10 @@ namespace StreetFighter
 {
     class Fighter1 : Player
     {
-        public Fighter1(Vector2 position, int frames) : base(position, frames)
+        List<SpecialAttack> specAttack = new List<SpecialAttack>();
+
+        public Fighter1(Vector2 position, int frames)
+            : base(position, frames)
         {
             attacking = false;
         }
@@ -20,7 +23,15 @@ namespace StreetFighter
         {
             //PlayAnimation("IdleRight");
 
+            velocity = Vector2.Zero;
+
             HandleInput(Keyboard.GetState());
+
+            velocity *= speed;
+
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            Position += (velocity * deltaTime);
 
             base.Update(gameTime);
         }
@@ -40,25 +51,15 @@ namespace StreetFighter
                     attacking = true;
 
                 }
-                else
-                {
-                    PlayAnimation("IdleRight");
-                }                
-
-                if (keyboard.IsKeyDown(Keys.W))
-                {
-                    //Jump
-                    PlayAnimation("");
-                }
-                if (keyboard.IsKeyDown(Keys.A))
+                else if (keyboard.IsKeyDown(Keys.A) && position.X > 0)
                 {
                     //Left
-                    PlayAnimation("");
+                    PlayAnimation("Walk");
                     velocity += new Vector2 (-1,0);
                 }
-                if (keyboard.IsKeyDown(Keys.D))
+                else if (keyboard.IsKeyDown(Keys.D) && position.X < 800 - rectangles[currentIndex].Width)
                 {
-                    PlayAnimation("");
+                    PlayAnimation("Walk");
                     velocity += new Vector2(1, 0);
                 }
             }
@@ -67,7 +68,8 @@ namespace StreetFighter
             {
                 if (keyboard.IsKeyDown(Keys.Q))
                 {
-                    
+                    PlayAnimation("FireBall");
+                    specAttack.Add(SpecialAttackPool.Create(lastDir, this, new Vector2(position.X + rectangles[currentIndex].Width, position.Y - rectangles[currentIndex].Height / 2), 2));
                 }
             }
 
@@ -87,6 +89,10 @@ namespace StreetFighter
             Texture2D textureLPunch = content.Load<Texture2D>(@"L.punch_S");
 
             CreateAnimation("LPunch", 3, 0, 0, 61, 94, Vector2.Zero, 3, textureLPunch);
+
+            Texture2D textureWalk = content.Load<Texture2D>(@"walking");
+
+            CreateAnimation("Walk", 5, 0, 0, 48, 90, Vector2.Zero, 5 ,textureWalk);
 
             base.LoadContent(content);
         }
