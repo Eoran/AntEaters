@@ -101,6 +101,14 @@ namespace StreetFighter
             base.LoadContent(content);
         }
 
+        public override void OnCollisionEnter(SpriteObject other)
+        {
+            if (other.AnimName == "KenLPunch")
+            {
+                health -= 10;
+            }
+        }
+
         public override void AnimationDone(string name)
         {
             if(name == "LPunch")

@@ -87,6 +87,14 @@ namespace StreetFighter
             }
         }
 
+        public override void OnCollisionEnter(SpriteObject other)
+        {
+            if (other.AnimName == "LPunch")
+            {
+                health -= 10;
+            }
+        }
+
         public override void AnimationDone(string name)
         {
             if (name == "KenLPunch")

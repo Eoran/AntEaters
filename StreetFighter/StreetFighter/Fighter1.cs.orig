@@ -44,12 +44,15 @@ namespace StreetFighter
                 {
                     PlayAnimation("CrouchRight");
                 }
-                else if(keyboard.IsKeyDown(Keys.F))
+                else if (keyboard.IsKeyDown(Keys.F))
                 {
+<<<<<<< HEAD
                     PlayAnimation("LPunch");
-                    
-                    attacking = true;
+=======
+                    PlayAnimation("LPunch");                    
 
+>>>>>>> a8382d10093458feb495200ad80252bd4e3dd8fb
+                    attacking = true;
                 }
                 else if (keyboard.IsKeyDown(Keys.A) && position.X > 0)
                 {
@@ -64,20 +67,17 @@ namespace StreetFighter
                 }
                 else
                 {
-<<<<<<< .merge_file_a11940
                     PlayAnimation("IdleRight");
-                }   
+                }
+            }
 
-                //if (keyboard.IsKeyDown(Keys.W))
-                //{
-                //    //Jump
-                //    PlayAnimation("");
-                //}
-=======
+            if (attacking)
+            {
+                if (keyboard.IsKeyDown(Keys.Q))
+                {
                     PlayAnimation("FireBall");
                     specAttack.Add(SpecialAttackPool.Create(lastDir, this, new Vector2(position.X + rectangles[currentIndex].Width, position.Y - rectangles[currentIndex].Height / 2), 2));
                 }
->>>>>>> .merge_file_a03976
             }
 
             //base.HandleInput(keyboard);
@@ -101,12 +101,22 @@ namespace StreetFighter
 
             CreateAnimation("Walk", 5, 0, 0, 48, 90, Vector2.Zero, 5 ,textureWalk);
 
+            PlayAnimation("IdleRight");
+
             base.LoadContent(content);
+        }
+
+        public override void OnCollisionEnter(SpriteObject other)
+        {
+            if (other.AnimName == "KenLPunch")
+            {
+                health -= 10;
+            }
         }
 
         public override void AnimationDone(string name)
         {
-            if (name == "LPunch")
+            if(name == "LPunch")
             {
                 attacking = false;
             }
