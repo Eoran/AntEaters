@@ -46,8 +46,8 @@ namespace StreetFighter
                 }
                 else if(keyboard.IsKeyDown(Keys.F))
                 {
-                    PlayAnimation("LPunch");
-                    
+                    PlayAnimation("LPunch");                    
+
                     attacking = true;
 
                 }
@@ -95,6 +95,14 @@ namespace StreetFighter
             CreateAnimation("Walk", 5, 0, 0, 48, 90, Vector2.Zero, 5 ,textureWalk);
 
             base.LoadContent(content);
+        }
+
+        public override void OnCollisionEnter(SpriteObject other)
+        {
+            if (other.AnimName == "KenLPunch")
+            {
+                health -= 10;
+            }
         }
 
         public override void AnimationDone(string name)
