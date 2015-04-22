@@ -11,6 +11,9 @@ namespace StreetFighter
     public class Game1 : Game
     {
         static int screenWidth;
+        private Texture2D background;
+        private const float delay = 90; //seconds
+        private float remainingDelay = delay;
 
         public static int ScreenWidth
         {
@@ -88,6 +91,8 @@ namespace StreetFighter
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            background = Content.Load<Texture2D>("background");
+
             // TODO: use this.Content to load your game content here
             foreach(SpriteObject obj in allObjects)
             {
@@ -114,10 +119,18 @@ namespace StreetFighter
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            var timer = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            remainingDelay -= timer;
+
             // TODO: Add your update logic here
             foreach (SpriteObject obj in allObjects)
             {
                 obj.Update(gameTime);
+            }
+
+            if (remainingDelay <= 0)
+            {
+                //Dislay winner with most health left. Can be a method we call from somewhere ells.
             }
 
             base.Update(gameTime);
@@ -133,6 +146,8 @@ namespace StreetFighter
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+
+            spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
 
             foreach (SpriteObject obj in allObjects)
             {
