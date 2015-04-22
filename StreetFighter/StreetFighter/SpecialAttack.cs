@@ -23,6 +23,7 @@ namespace StreetFighter
         public SpecialAttack(string direction, Player player, Vector2 position, int frames) : base(position, frames)
         {
             speed = 50;
+            PlayAnimation("FireBall");
         }
 
         public override void Update(GameTime gameTime)
@@ -44,6 +45,8 @@ namespace StreetFighter
                 PlayAnimation("FireBall");
             }
 
+            PlayAnimation("FireBall");
+
             base.Update(gameTime);
         }
 
@@ -53,9 +56,8 @@ namespace StreetFighter
 
             //SpecialAttack Animations
             texture = content.Load<Texture2D>(@"KenFireball");
-            Texture2D textureFireBall = content.Load<Texture2D>(@"KenFireball");
 
-            CreateAnimation("FireBall", 6, 0, 0, 49, 91, Vector2.Zero, 6, textureFireBall);
+            CreateAnimation("FireBall", 6, 0, 0, 49, 91, Vector2.Zero, 6, texture);
             base.LoadContent(content);
         }
 

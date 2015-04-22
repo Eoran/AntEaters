@@ -13,7 +13,7 @@ namespace StreetFighter
     {
         public Fighter2(Vector2 position, int frames) : base(position, frames)
         {
-            this.effect = SpriteEffects.FlipVertically;
+            this.effect = SpriteEffects.FlipHorizontally;
         }
 
         public override void Update(GameTime gameTime)
@@ -35,19 +35,21 @@ namespace StreetFighter
         {
             texture = content.Load<Texture2D>(@"KenIdle");
 
-            CreateAnimation("KenIdleRight", 4, 0, 0, 50, 93, Vector2.Zero, 4, texture);
+            CreateAnimation("KenIdleRight", 4, 0, 0, 50, 91, Vector2.Zero, 4, texture);
 
-            Texture2D textureCrouch = content.Load<Texture2D>(@"KenCrouch");
+            //Texture2D textureCrouch = content.Load<Texture2D>(@"KenCrouch");
 
-            CreateAnimation("kenCrouchRight", 1, 0, 1, 49, 91, Vector2.Zero, 1, textureCrouch);
+            //CreateAnimation("kenCrouchRight", 1, 0, 1, 49, 91, Vector2.Zero, 1, textureCrouch);
 
-            Texture2D textureLPunch = content.Load<Texture2D>(@"KenforwardL.Punch");
+            //Texture2D textureLPunch = content.Load<Texture2D>(@"KenforwardL.Punch");
 
-            CreateAnimation("KenLPunch", 3, 0, 0, 61, 94, Vector2.Zero, 3, textureLPunch);
+            //CreateAnimation("KenLPunch", 3, 0, 0, 61, 94, Vector2.Zero, 3, textureLPunch);
 
-            Texture2D textureWalk = content.Load<Texture2D>(@"Kenwalking");
+            //Texture2D textureWalk = content.Load<Texture2D>(@"Kenwalking");
 
-            CreateAnimation("KenWalk", 5, 0, 0, 48, 90, Vector2.Zero, 5 ,textureWalk);
+            //CreateAnimation("KenWalk", 5, 0, 0, 48, 90, Vector2.Zero, 5, textureWalk);
+
+            PlayAnimation("KenIdleRight");
 
             base.LoadContent(content);
         }
@@ -80,7 +82,7 @@ namespace StreetFighter
                 }
                 else
                 {
-                    PlayAnimation("KenIdleLeft");
+                    PlayAnimation("KenIdleRight");
                 }
             }
         }

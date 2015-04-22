@@ -44,12 +44,10 @@ namespace StreetFighter
                 {
                     PlayAnimation("CrouchRight");
                 }
-                else if(keyboard.IsKeyDown(Keys.F))
+                else if (keyboard.IsKeyDown(Keys.F))
                 {
                     PlayAnimation("LPunch");
-                    
                     attacking = true;
-
                 }
                 else if (keyboard.IsKeyDown(Keys.A) && position.X > 0)
                 {
@@ -61,6 +59,10 @@ namespace StreetFighter
                 {
                     PlayAnimation("Walk");
                     velocity += new Vector2(1, 0);
+                }
+                else
+                {
+                    PlayAnimation("IdleRight");
                 }
             }
 
@@ -93,6 +95,8 @@ namespace StreetFighter
             Texture2D textureWalk = content.Load<Texture2D>(@"walking");
 
             CreateAnimation("Walk", 5, 0, 0, 48, 90, Vector2.Zero, 5 ,textureWalk);
+
+            PlayAnimation("IdleRight");
 
             base.LoadContent(content);
         }
