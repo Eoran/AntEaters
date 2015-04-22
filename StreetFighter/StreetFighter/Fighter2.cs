@@ -35,19 +35,19 @@ namespace StreetFighter
         {
             texture = content.Load<Texture2D>(@"KenIdle");
 
-            CreateAnimation("KenIdleRight", 4, 0, 0, 50, 91, Vector2.Zero, 4, texture);
+            CreateAnimation("KenIdleRight", 4, 0, 0, 50, 91, new Vector2(0, -1), 4, texture);
 
-            //Texture2D textureCrouch = content.Load<Texture2D>(@"KenCrouch");
+            Texture2D textureCrouch = content.Load<Texture2D>(@"KenCrouch");
 
-            //CreateAnimation("kenCrouchRight", 1, 0, 1, 49, 91, Vector2.Zero, 1, textureCrouch);
+            CreateAnimation("kenCrouchRight", 1, 0, 1, 46, 90, Vector2.Zero, 1, textureCrouch);
 
-            //Texture2D textureLPunch = content.Load<Texture2D>(@"KenforwardL.Punch");
+            Texture2D textureLPunch = content.Load<Texture2D>(@"KenfowardL.Punch_S");
 
-            //CreateAnimation("KenLPunch", 3, 0, 0, 61, 94, Vector2.Zero, 3, textureLPunch);
+            CreateAnimation("KenLPunch", 3, 0, 0, 61, 93, new Vector2(-11, -3), 3, textureLPunch);
 
-            //Texture2D textureWalk = content.Load<Texture2D>(@"Kenwalking");
+            Texture2D textureWalk = content.Load<Texture2D>(@"Kenwalking");
 
-            //CreateAnimation("KenWalk", 5, 0, 0, 48, 90, Vector2.Zero, 5, textureWalk);
+            CreateAnimation("KenWalk", 5, 0, 0, 48, 93, new Vector2(0, -3), 5, textureWalk);
 
             PlayAnimation("KenIdleRight");
 
@@ -60,14 +60,12 @@ namespace StreetFighter
             {
                 if (keyboard.IsKeyDown(Keys.Down))
                 {
-                    PlayAnimation("KenCrouchLeft");
+                    PlayAnimation("kenCrouchRight");
                 }
                 else if (keyboard.IsKeyDown(Keys.L))
                 {
                     PlayAnimation("KenLPunch");
-
                     attacking = true;
-
                 }
                 else if (keyboard.IsKeyDown(Keys.Left) && position.X > 0)
                 {
@@ -91,7 +89,7 @@ namespace StreetFighter
         {
             if (other.AnimName == "LPunch")
             {
-                health -= 10;
+                Health -= 10;
             }
         }
 

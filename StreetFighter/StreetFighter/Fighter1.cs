@@ -82,15 +82,15 @@ namespace StreetFighter
         {
             texture = content.Load<Texture2D>(@"idle");
 
-            CreateAnimation("IdleRight", 4, 0, 0, 50, 93, Vector2.Zero, 4, texture);
+            CreateAnimation("IdleRight", 4, 0, 0, 50, 93, new Vector2(0, -2), 4, texture);
 
             Texture2D textureCrouch = content.Load<Texture2D>(@"Crouch");
 
-            CreateAnimation("CrouchRight", 1, 0, 1, 49, 91, Vector2.Zero, 1, textureCrouch);
+            CreateAnimation("CrouchRight", 1, 0, 1, 49, 91, new Vector2(0, -1), 1, textureCrouch);
 
             Texture2D textureLPunch = content.Load<Texture2D>(@"L.punch_S");
 
-            CreateAnimation("LPunch", 3, 0, 0, 61, 94, Vector2.Zero, 3, textureLPunch);
+            CreateAnimation("LPunch", 3, 0, 0, 61, 94, new Vector2(0, -4), 3, textureLPunch);
 
             Texture2D textureWalk = content.Load<Texture2D>(@"walking");
 
@@ -105,7 +105,7 @@ namespace StreetFighter
         {
             if (other.AnimName == "KenLPunch")
             {
-                health -= 10;
+                Health -= 10;
             }
         }
 

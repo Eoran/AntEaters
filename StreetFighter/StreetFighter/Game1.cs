@@ -10,16 +10,15 @@ namespace StreetFighter
     /// </summary>
     public class Game1 : Game
     {
-        static int screenWidth;
+        private Texture2D healthText;
+        private Texture2D dmgText;
+
+        private Fighter1 f1;
+        private Fighter2 f2;
+
         private Texture2D background;
         private const float delay = 90; //seconds
         private float remainingDelay = delay;
-
-        public static int ScreenWidth
-        {
-            get { return Game1.screenWidth; }
-        }
-
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -60,7 +59,7 @@ namespace StreetFighter
         {
             graphics = new GraphicsDeviceManager(this);
             allObjects = new List<SpriteObject>();
-
+            collidingObjects = new List<SpriteObject>();
 
 
             Content.RootDirectory = "Content";
@@ -75,9 +74,9 @@ namespace StreetFighter
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            allObjects.Add(new Fighter1(new Vector2(100, 100), 4));
+            allObjects.Add(f1 = new Fighter1(new Vector2(100, 350), 4));
 
-            allObjects.Add(new Fighter2(new Vector2(700, 100), 4));
+            allObjects.Add(f2 = new Fighter2(new Vector2(700, 350), 4));
 
             base.Initialize();
         }
@@ -94,6 +93,11 @@ namespace StreetFighter
             background = Content.Load<Texture2D>("background");
 
             // TODO: use this.Content to load your game content here
+            healthText = Content.Load<Texture2D>(@"Health");
+            dmgText = Content.Load<Texture2D>(@"Dmg");
+
+
+
             foreach(SpriteObject obj in allObjects)
             {
                 obj.LoadContent(Content);
@@ -148,6 +152,10 @@ namespace StreetFighter
             spriteBatch.Begin();
 
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
+
+            //Health bar
+            spriteBatch.Draw(healthText, new Rectangle(10, 10, f1.Health * 3, 30), Color.White);
+
 
             foreach (SpriteObject obj in allObjects)
             {

@@ -9,7 +9,14 @@ namespace StreetFighter
 {
     abstract class Player : SpriteObject
     {
-        protected int health;
+        private int health;
+
+        public int Health
+        {
+            get { return health; }
+            set { health = value; }
+        }
+
         protected bool isAlive;
         protected int kOCount;
         public string lastDir;
