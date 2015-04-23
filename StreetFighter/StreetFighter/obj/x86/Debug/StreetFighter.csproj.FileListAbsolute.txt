@@ -28,7 +28,6 @@ C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Wind
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\StreetFighter.pdb
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.exe
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.pdb
-C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\Ryu.gif
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\StreetFighter.exe
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\StreetFighter.pdb
@@ -138,3 +137,6 @@ C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Wind
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\Dmg.png
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\Health.png
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\KenfowardL.Punch_S.png
+C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
+C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\F1Won.png
+C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\F2Won.png

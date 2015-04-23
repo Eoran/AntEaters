@@ -10,6 +10,10 @@ namespace StreetFighter
     /// </summary>
     public class Game1 : Game
     {
+        private Texture2D w1;
+        private Texture2D w2;
+        private string theWinner;
+        
         private Texture2D healthText;
         private Texture2D dmgText;
 
@@ -60,6 +64,8 @@ namespace StreetFighter
             graphics = new GraphicsDeviceManager(this);
             allObjects = new List<SpriteObject>();
             collidingObjects = new List<SpriteObject>();
+            objectsToAdd = new List<SpriteObject>();
+            objectsToRemove = new List<SpriteObject>();
 
 
             Content.RootDirectory = "Content";
@@ -96,7 +102,8 @@ namespace StreetFighter
             healthText = Content.Load<Texture2D>(@"Health");
             dmgText = Content.Load<Texture2D>(@"Dmg");
 
-
+            w1 = Content.Load<Texture2D>(@"F1Won");
+            w2 = Content.Load<Texture2D>(@"F2Won");
 
             foreach(SpriteObject obj in allObjects)
             {
@@ -127,9 +134,34 @@ namespace StreetFighter
             remainingDelay -= timer;
 
             // TODO: Add your update logic here
+
+            foreach (SpriteObject dead in objectsToRemove)
+            {
+                allObjects.Remove(dead);
+            }
+
+            allObjects.AddRange(objectsToAdd);
+
+            objectsToAdd.Clear();
+            objectsToRemove.Clear();
+
             foreach (SpriteObject obj in allObjects)
             {
                 obj.Update(gameTime);
+            }
+
+            if(f1.Winner || f2.Winner)
+            {
+                if(f1.Winner)
+                {
+                    theWinner = "f1";
+                    allObjects.Clear();
+                }
+                else if(f2.Winner)
+                {
+                    theWinner = "f2";
+                    allObjects.Clear();
+                }
             }
 
             if (remainingDelay <= 0)
@@ -153,10 +185,23 @@ namespace StreetFighter
 
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
 
+            //Display winner
+            if(theWinner == "f1")
+            {
+                spriteBatch.Draw(w1, new Rectangle(120, 80, 600, 40), Color.White);
+            }
+            else if(theWinner == "f2")
+            {
+                spriteBatch.Draw(w2, new Rectangle(120, 80, 600, 40), Color.White);
+            }
+
+
             //Health bar
             spriteBatch.Draw(healthText, new Rectangle(10, 10, f1.Health * 3, 30), Color.White);
+            spriteBatch.Draw(dmgText, new Rectangle(310 - (300 - (f1.Health * 3)), 10, 300 - (f1.Health * 3), 30), Color.White);
 
             spriteBatch.Draw(healthText, new Rectangle(490 + ((100 - f2.Health) * 3), 10, f2.Health * 3, 30), Color.White);
+            spriteBatch.Draw(dmgText, new Rectangle(490, 10, 300 - (f2.Health * 3), 30), Color.White);
 
             foreach (SpriteObject obj in allObjects)
             {

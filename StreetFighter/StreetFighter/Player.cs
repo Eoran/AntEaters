@@ -9,6 +9,14 @@ namespace StreetFighter
 {
     abstract class Player : SpriteObject
     {
+        private bool winner;
+
+        public bool Winner
+        {
+            get { return winner; }
+            set { winner = value; }
+        }
+        
         protected string curAtk;
         protected bool crouched;
 

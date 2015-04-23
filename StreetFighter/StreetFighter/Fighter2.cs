@@ -14,6 +14,8 @@ namespace StreetFighter
         public Fighter2(Vector2 position, int frames) : base(position, frames)
         {
             this.effect = SpriteEffects.FlipHorizontally;
+            attacking = false;
+            this.Winner = false;
         }
 
         public override void Update(GameTime gameTime)
@@ -100,6 +102,10 @@ namespace StreetFighter
                     if (!tempFighter.Crouched)
                     {
                         tempFighter.Health -= 10;
+                        if(tempFighter.Health <= 0)
+                        {
+                            this.Winner = true;
+                        }
                     }
                 }
             }

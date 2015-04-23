@@ -66,6 +66,12 @@
     <Content Include="Content\Dmg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\F1Won.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\F2Won.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Fireball.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
