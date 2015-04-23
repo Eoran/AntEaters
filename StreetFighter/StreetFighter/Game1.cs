@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -10,6 +11,27 @@ namespace StreetFighter
     /// </summary>
     public class Game1 : Game
     {
+        public static SpriteFont text;
+        
+        //Singleton
+        public static ContentManager myContent;
+        
+        #region Singleton
+        static Game1 instance;
+
+        public static Game1 Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new Game1();
+                }
+                return instance;
+            }
+        }
+        #endregion
+
         private Texture2D w1;
         private Texture2D w2;
         private string theWinner;
@@ -58,7 +80,7 @@ namespace StreetFighter
             set { Game1.collidingObjects = value; }
         }
 
-        public Game1()
+        private Game1()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -80,6 +102,8 @@ namespace StreetFighter
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            myContent = Content;
+
             allObjects.Add(f1 = new Fighter1(new Vector2(100, 350), 4));
 
             allObjects.Add(f2 = new Fighter2(new Vector2(700, 350), 4));
@@ -95,6 +119,8 @@ namespace StreetFighter
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            text = Content.Load<SpriteFont>(@"newFont");
 
             background = Content.Load<Texture2D>("background");
 
@@ -188,11 +214,13 @@ namespace StreetFighter
             //Display winner
             if(theWinner == "f1")
             {
-                spriteBatch.Draw(w1, new Rectangle(120, 80, 600, 40), Color.White);
+                //spriteBatch.Draw(w1, new Rectangle(120, 80, 600, 40), Color.White);
+                spriteBatch.DrawString(text, "Fighter 1 has won!", new Vector2(Window.ClientBounds.Width / 2 - text.MeasureString("Fighter 1 has won!").X / 2, 100), Color.Magenta);
             }
             else if(theWinner == "f2")
             {
-                spriteBatch.Draw(w2, new Rectangle(120, 80, 600, 40), Color.White);
+                spriteBatch.DrawString(text, "Fighter 2 has won!", new Vector2(Window.ClientBounds.Width / 2 - text.MeasureString("Fighter 2 has won!").X / 2, 100), Color.Magenta);
+                //spriteBatch.Draw(w2, new Rectangle(120, 80, 600, 40), Color.White);
             }
 
 

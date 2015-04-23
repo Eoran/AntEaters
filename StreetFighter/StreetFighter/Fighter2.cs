@@ -108,12 +108,33 @@ namespace StreetFighter
                         }
                     }
                 }
+                else if (curAtk == "LKick")
+                {
+                    Fighter2 tempFighter = other as Fighter2;
+
+                    if (tempFighter.Crouched)
+                    {
+                        tempFighter.Health -= 10;
+                        if (tempFighter.Health <= 0)
+                        {
+                            this.Winner = true;
+                        }
+                    }
+                    else if (!tempFighter.Crouched)
+                    {
+                        tempFighter.Health -= 5;
+                        if (tempFighter.Health <= 0)
+                        {
+                            this.Winner = true;
+                        }
+                    }
+                }
             }
         }
 
         public override void AnimationDone(string name)
         {
-            if (name == "KenLPunch")
+            if (name == "KenLPunch" || name == "LKick")
             {
                 attacking = false;
             }

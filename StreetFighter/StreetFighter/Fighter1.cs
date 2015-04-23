@@ -52,6 +52,12 @@ namespace StreetFighter
                     curAtk = "LPunch";
                     attacking = true;
                 }
+                else if (keyboard.IsKeyDown(Keys.G))
+                {
+                    PlayAnimation("LKick");
+                    curAtk = "LKick";
+                    attacking = true;
+                }
                 else if (keyboard.IsKeyDown(Keys.A) && position.X > 0)
                 {
                     //Left
@@ -63,6 +69,10 @@ namespace StreetFighter
                     PlayAnimation("Walk");
                     velocity += new Vector2(1, 0);
                 }
+                else if (keyboard.IsKeyDown(Keys.Q))
+                {
+                    Game1.ObjectsToAdd.Add(SpecialAttackPool.Create("right", this, new Vector2(position.X + rectangles[currentIndex].Width, position.Y - rectangles[currentIndex].Height / 2), 2));
+                }
                 else
                 {
                     PlayAnimation("IdleRight");
@@ -70,14 +80,7 @@ namespace StreetFighter
                 }
             }
 
-            if (attacking)
-            {
-                if (keyboard.IsKeyDown(Keys.Q))
-                {
-                    PlayAnimation("FireBall");
-                    specAttack.Add(SpecialAttackPool.Create(lastDir, this, new Vector2(position.X + rectangles[currentIndex].Width, position.Y - rectangles[currentIndex].Height / 2), 2));
-                }
-            }
+
 
             //base.HandleInput(keyboard);
         }
@@ -86,7 +89,7 @@ namespace StreetFighter
         {
             texture = content.Load<Texture2D>(@"idle");
 
-            CreateAnimation("IdleRight", 4, 0, 0, 50, 93, new Vector2(0, -2), 4, texture);
+            CreateAnimation("IdleRight", 4, 0, 0, 50, 93, new Vector2(0, -3), 4, texture);
 
             Texture2D textureCrouch = content.Load<Texture2D>(@"Crouch");
 
@@ -99,6 +102,10 @@ namespace StreetFighter
             Texture2D textureWalk = content.Load<Texture2D>(@"walking");
 
             CreateAnimation("Walk", 5, 0, 0, 48, 90, Vector2.Zero, 5 ,textureWalk);
+
+            Texture2D textureLKick = content.Load<Texture2D>(@"fowardL.kick_S.png");
+
+            CreateAnimation("LKick", 3, 0, 0, 77, 103, new Vector2(0, -13), 3, textureLKick);
 
             PlayAnimation("IdleRight");
 
@@ -122,12 +129,33 @@ namespace StreetFighter
                         }
                     }
                 }
+                else if (curAtk == "LKick")
+                {
+                    Fighter2 tempFighter = other as Fighter2;
+
+                    if (tempFighter.Crouched)
+                    {
+                        tempFighter.Health -= 10;
+                        if (tempFighter.Health <= 0)
+                        {
+                            this.Winner = true;
+                        }
+                    }
+                    else if (!tempFighter.Crouched)
+                    {
+                        tempFighter.Health -= 5;
+                        if (tempFighter.Health <= 0)
+                        {
+                            this.Winner = true;
+                        }
+                    }
+                }
             }
         }
 
         public override void AnimationDone(string name)
         {
-            if(name == "LPunch")
+            if(name == "LPunch" || name == "LKick")
             {
                 attacking = false;
             }

@@ -1,6 +1,5 @@
 c:\users\josefine\documents\visual studio 2013\Projects\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
 C:\Users\KimLouise\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
-C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\Ryu.gif
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\MonoGame.Framework.dll
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\SharpDX.MediaFoundation.dll
@@ -140,3 +139,9 @@ C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Wind
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\F1Won.png
 C:\Users\Bruger\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\F2Won.png
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\F1Won.png
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\F2Won.png
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\Debug\StreetFighter.csprojResolveAssemblyReference.cache
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\fowardL.kick_S.png
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\newFont.xnb
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\newFont.spritefont

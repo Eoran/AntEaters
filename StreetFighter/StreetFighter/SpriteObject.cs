@@ -101,7 +101,10 @@ namespace StreetFighter
 
         protected void CreateAnimation(string name, int frames, int posY, int xStartFrame, int width, int height, Vector2 offset, float fps, Texture2D texture)
         {
-            animations.Add(name, new Animation(frames, posY, xStartFrame, width, height, offset, fps, texture));
+            if (!animations.ContainsKey(name))
+            {
+                animations.Add(name, new Animation(frames, posY, xStartFrame, width, height, offset, fps, texture));
+            }
         }
 
         protected void PlayAnimation(string name)
