@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -11,11 +12,19 @@ namespace StreetFighter
 {
     class Fighter1 : Player
     {
+        Stopwatch delay;
+
+        public Stopwatch Delay
+        {
+            get { return delay; }
+        }
+        
         List<SpecialAttack> specAttack = new List<SpecialAttack>();
 
         public Fighter1(Vector2 position, int frames)
             : base(position, frames)
         {
+            delay = new Stopwatch();
             attacking = false;
             this.Winner = false;
         }
@@ -64,14 +73,15 @@ namespace StreetFighter
                     PlayAnimation("Walk");
                     velocity += new Vector2 (-1,0);
                 }
-                else if (keyboard.IsKeyDown(Keys.D) && position.X < 800 - rectangles[currentIndex].Width && !colliding)
+                else if (keyboard.IsKeyDown(Keys.D) && position.X < 800 - Rectangles[CurrentIndex].Width && !colliding)
                 {
                     PlayAnimation("Walk");
                     velocity += new Vector2(1, 0);
                 }
-                else if (keyboard.IsKeyDown(Keys.Q))
+                else if (keyboard.IsKeyDown(Keys.Q) && delay.ElapsedMilliseconds == 0)
                 {
-                    Game1.ObjectsToAdd.Add(SpecialAttackPool.Create("right", this, new Vector2(position.X + rectangles[currentIndex].Width, position.Y - rectangles[currentIndex].Height / 2), 2));
+                    delay.Start();
+                    Game1.ObjectsToAdd.Add(SpecialAttackPool.Create("right", this, new Vector2(position.X + this.Rectangles[CurrentIndex].Width, position.Y), 2));
                 }
                 else
                 {
@@ -80,7 +90,10 @@ namespace StreetFighter
                 }
             }
 
-
+            if (delay.ElapsedMilliseconds >= 5000)
+            {
+                delay.Reset();
+            }
 
             //base.HandleInput(keyboard);
         }
@@ -114,12 +127,12 @@ namespace StreetFighter
 
         public override void OnCollisionEnter(SpriteObject other)
         {
+            Fighter2 tempFighter = other as Fighter2;
+
             if (attacking)
             {
                 if (curAtk == "LPunch")
                 {
-                    Fighter2 tempFighter = other as Fighter2;
-
                     if (!tempFighter.Crouched)
                     {
                         tempFighter.Health -= 10;
@@ -131,8 +144,6 @@ namespace StreetFighter
                 }
                 else if (curAtk == "LKick")
                 {
-                    Fighter2 tempFighter = other as Fighter2;
-
                     if (tempFighter.Crouched)
                     {
                         tempFighter.Health -= 10;

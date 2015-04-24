@@ -43,6 +43,8 @@ namespace StreetFighter
         public Player(Vector2 position, int frames)
             : base(position, frames)
         {
+            this.LoadContent(Game1.myContent);
+            
             this.speed = 100;
             health = 100;
             attacking = false;

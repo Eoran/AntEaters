@@ -51,6 +51,10 @@ namespace StreetFighter
 
             CreateAnimation("KenWalk", 5, 0, 0, 48, 93, new Vector2(0, -3), 5, textureWalk);
 
+            Texture2D textureLKick = content.Load<Texture2D>(@"KenforwardL.Kick_S");
+
+            CreateAnimation("KenLKick", 3, 0, 0, 77, 106, new Vector2(-27, -16), 3, textureLKick);
+
             PlayAnimation("KenIdleRight");
 
             base.LoadContent(content);
@@ -72,13 +76,19 @@ namespace StreetFighter
                     curAtk = "LPunch";
                     attacking = true;
                 }
+                else if (keyboard.IsKeyDown(Keys.K))
+                {
+                    PlayAnimation("KenLKick");
+                    curAtk = "LKick";
+                    attacking = true;
+                }
                 else if (keyboard.IsKeyDown(Keys.Left) && position.X > 0 && !colliding)
                 {
                     //Left
                     PlayAnimation("KenWalk");
                     velocity += new Vector2(-1, 0);
                 }
-                else if (keyboard.IsKeyDown(Keys.Right) && position.X < 800 - rectangles[currentIndex].Width)
+                else if (keyboard.IsKeyDown(Keys.Right) && position.X < 800 - Rectangles[CurrentIndex].Width)
                 {
                     PlayAnimation("KenWalk");
                     velocity += new Vector2(1, 0);
@@ -93,16 +103,16 @@ namespace StreetFighter
 
         public override void OnCollisionEnter(SpriteObject other)
         {
+            Fighter1 tempFighter = other as Fighter1;
+
             if (attacking)
             {
                 if (curAtk == "LPunch")
                 {
-                    Fighter1 tempFighter = other as Fighter1;
-
                     if (!tempFighter.Crouched)
                     {
                         tempFighter.Health -= 10;
-                        if(tempFighter.Health <= 0)
+                        if (tempFighter.Health <= 0)
                         {
                             this.Winner = true;
                         }
@@ -110,8 +120,6 @@ namespace StreetFighter
                 }
                 else if (curAtk == "LKick")
                 {
-                    Fighter2 tempFighter = other as Fighter2;
-
                     if (tempFighter.Crouched)
                     {
                         tempFighter.Health -= 10;
@@ -134,7 +142,7 @@ namespace StreetFighter
 
         public override void AnimationDone(string name)
         {
-            if (name == "KenLPunch" || name == "LKick")
+            if (name == "KenLPunch" || name == "KenLKick")
             {
                 attacking = false;
             }

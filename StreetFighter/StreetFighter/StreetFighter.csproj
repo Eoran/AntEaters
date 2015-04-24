@@ -102,10 +102,16 @@
     <Content Include="Content\KenFireball.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\KenFireball_S.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\KenforwardH.Punch.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\KenforwardL.Kick.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\KenforwardL.Kick_S.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\KenfowardL.Punch_S.png">
@@ -140,6 +146,9 @@
   <ItemGroup>
     <None Include="Content\fontGurli.spritefont" />
     <None Include="Content\newFont.spritefont">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\smallFont.spritefont">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Content\SpriteFont.mgcb" />

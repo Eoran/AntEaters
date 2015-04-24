@@ -10,6 +10,11 @@ namespace StreetFighter
 {
     class SpecialAttack : SpriteObject
     {
+        bool reset;
+        
+        bool initDone;
+        bool hit;
+        
         private string direction;
         private Player player;
         DateTime cated = DateTime.Now;
@@ -22,33 +27,64 @@ namespace StreetFighter
         public string TmpData { get; set; }
         public SpecialAttack(string direction, Player player, Vector2 position, int frames) : base(position, frames)
         {
+            reset = false;
+            hit = false;
+            initDone = false;
+            this.player = player;
             this.LoadContent(Game1.myContent);
             this.direction = direction;
-            speed = 50;
-            PlayAnimation("FireBall");
+            speed = 100;
+
+            //this.position = new Vector2(player.Position.X + player.Rectangles[player.CurrentIndex].Width, player.Position.Y);
+
+            //PlayAnimation("FireBall");
         }
 
         public override void Update(GameTime gameTime)
         {
+            if(reset)
+            {
+                this.position = new Vector2(player.Position.X + player.Rectangles[player.CurrentIndex].Width, player.Position.Y);
+                PlayAnimation("FireBallStart");
+                reset = false;
+            }
+            
             velocity = Vector2.Zero;
 
-            if (direction == "right")
+            if (direction == "right" && !hit)
             {
                 velocity += new Vector2(1, 0);
-                PlayAnimation("FireBall");
+                if(initDone)
+                {
+                    PlayAnimation("FireBallFlight");
+                }
+                //PlayAnimation("FireBall");
             }
 
             else if (direction == "left")
             {
                 velocity += new Vector2(-1, 0);
-                PlayAnimation("FireBall");
+                //PlayAnimation("FireBall");
+            }
+
+            else if (hit)
+            {
+                PlayAnimation("FireBallHit");
             }
 
             velocity *= speed;
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Position += (velocity * deltaTime);
 
-            PlayAnimation("FireBall");
+            if(position.X + rectangles[currentIndex].Width >= 800)
+            {
+                reset = true;
+                hit = false;
+                SpecialAttackPool.ReleaseObjcet(this);
+                Game1.ObjectsToRemove.Add(this);
+            }
+
+            //PlayAnimation("FireBall");
 
             base.Update(gameTime);
         }
@@ -58,18 +94,35 @@ namespace StreetFighter
             //texture = content.Load<Texture2D>(@"");
 
             //SpecialAttack Animations
-            texture = content.Load<Texture2D>(@"KenFireball");
+            texture = content.Load<Texture2D>(@"KenFireball_S");
 
-            CreateAnimation("FireBall", 6, 0, 0, 28, 77, Vector2.Zero, 6, texture);
+            CreateAnimation("FireBallStart", 2, 0, 0, 38, 40, Vector2.Zero, 2, texture);
+            CreateAnimation("FireBallFlight", 1, 0, 2, 38, 40, Vector2.Zero, 1, texture);
+            CreateAnimation("FireBallHit", 3, 0, 3, 38, 40, Vector2.Zero, 3, texture);
 
-            PlayAnimation("FireBall");
+            PlayAnimation("FireBallStart");
 
             base.LoadContent(content);
         }
 
         public override void OnCollisionEnter(SpriteObject other)
         {
+            Player tempPlayer = other as Player;
             
+            //if (tempPlayer != player)
+            //{
+            //    initDone = false;
+            //    colliding = true;
+            //}
+            tempPlayer.Health -= 20;
+            if (tempPlayer.Health <= 0)
+            {
+                player.Winner = true;
+            }
+
+            initDone = false;
+            hit = true;
+
         }
 
         public override void OnCollisionExit(SpriteObject other)
@@ -79,7 +132,17 @@ namespace StreetFighter
 
         public override void AnimationDone(string name)
         {
-
+            if(name == "FireBallStart")
+            {
+                initDone = true;
+            }
+            else if (name == "FireBallHit")
+            {
+                reset = true;
+                hit = false;
+                SpecialAttackPool.ReleaseObjcet(this);
+                Game1.ObjectsToRemove.Add(this);
+            }
         }
     }
 }

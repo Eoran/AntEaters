@@ -11,11 +11,17 @@ namespace StreetFighter
     /// </summary>
     public class Game1 : Game
     {
-        public static SpriteFont text;
+        bool newGame;
         
-        //Singleton
+        KeyboardState keyBoard;
+        bool restart;
+
+        public static SpriteFont text;
+        public static SpriteFont smallText;
+
         public static ContentManager myContent;
         
+        //Singleton
         #region Singleton
         static Game1 instance;
 
@@ -89,6 +95,9 @@ namespace StreetFighter
             objectsToAdd = new List<SpriteObject>();
             objectsToRemove = new List<SpriteObject>();
 
+            newGame = true;
+
+            restart = false;
 
             Content.RootDirectory = "Content";
         }
@@ -104,9 +113,9 @@ namespace StreetFighter
             // TODO: Add your initialization logic here
             myContent = Content;
 
-            allObjects.Add(f1 = new Fighter1(new Vector2(100, 350), 4));
+            //allObjects.Add(f1 = new Fighter1(new Vector2(100, 350), 4));
 
-            allObjects.Add(f2 = new Fighter2(new Vector2(700, 350), 4));
+            //allObjects.Add(f2 = new Fighter2(new Vector2(700, 350), 4));
 
             base.Initialize();
         }
@@ -121,6 +130,7 @@ namespace StreetFighter
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             text = Content.Load<SpriteFont>(@"newFont");
+            smallText = Content.Load<SpriteFont>(@"smallFont");
 
             background = Content.Load<Texture2D>("background");
 
@@ -161,6 +171,26 @@ namespace StreetFighter
 
             // TODO: Add your update logic here
 
+            keyBoard = Keyboard.GetState();
+
+            if(keyBoard.IsKeyDown(Keys.N) && newGame)
+            {
+                newGame = false;
+
+                allObjects.Add(f1 = new Fighter1(new Vector2(100, 350), 4));
+
+                allObjects.Add(f2 = new Fighter2(new Vector2(700, 350), 4));
+            }
+
+            if (keyBoard.IsKeyDown(Keys.R) && restart)
+            {
+                restart = false;
+                theWinner = "";
+                objectsToAdd.Add(f1 = new Fighter1(new Vector2(100, 350), 4));
+                objectsToAdd.Add(f2 = new Fighter2(new Vector2(700, 350), 4));
+
+            }
+
             foreach (SpriteObject dead in objectsToRemove)
             {
                 allObjects.Remove(dead);
@@ -176,17 +206,20 @@ namespace StreetFighter
                 obj.Update(gameTime);
             }
 
-            if(f1.Winner || f2.Winner)
+            if (!newGame)
             {
-                if(f1.Winner)
+                if (f1.Winner || f2.Winner)
                 {
-                    theWinner = "f1";
-                    allObjects.Clear();
-                }
-                else if(f2.Winner)
-                {
-                    theWinner = "f2";
-                    allObjects.Clear();
+                    if (f1.Winner)
+                    {
+                        theWinner = "f1";
+                        allObjects.Clear();
+                    }
+                    else if (f2.Winner)
+                    {
+                        theWinner = "f2";
+                        allObjects.Clear();
+                    }
                 }
             }
 
@@ -211,25 +244,52 @@ namespace StreetFighter
 
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
 
+            //Display start menu
+            if(newGame)
+            {
+                spriteBatch.DrawString(text, "Press N to start game!", new Vector2(Window.ClientBounds.Width / 2 - text.MeasureString("Press N to start game!").X / 2, 50), Color.Magenta);
+
+                //Instructions for fighter1
+                spriteBatch.DrawString(smallText, "Controls for fighter1", new Vector2(50, 150), Color.Blue);
+                spriteBatch.DrawString(smallText, "Use A and D for movement and S for Crouching", new Vector2(50, 175), Color.Blue);
+                spriteBatch.DrawString(smallText, "Press F for punch and G for kick", new Vector2(50, 200), Color.Blue);
+                spriteBatch.DrawString(smallText, "Press Q for specialattack", new Vector2(50, 225), Color.Blue);
+
+                //Instructions for fighter2
+                spriteBatch.DrawString(smallText, "Controls for fighter2", new Vector2(Window.ClientBounds.Width - smallText.MeasureString("Controls for fighter2").X - 50, 150), Color.Red);
+                spriteBatch.DrawString(smallText, "Use arrowkey left and arrowkey right for movement", new Vector2(Window.ClientBounds.Width - smallText.MeasureString("Use arrowkey left and arrowkey right for movement").X - 50, 175), Color.Red);
+                spriteBatch.DrawString(smallText, "Use arrowkey down for Crouching", new Vector2(Window.ClientBounds.Width - smallText.MeasureString("Use arrowkey down for Crouching").X - 50, 200), Color.Red);
+                spriteBatch.DrawString(smallText, "Press L for punch and K for kick", new Vector2(Window.ClientBounds.Width - smallText.MeasureString("Press L for punch and K for kick").X - 50, 225), Color.Red);
+            }
+
             //Display winner
             if(theWinner == "f1")
             {
                 //spriteBatch.Draw(w1, new Rectangle(120, 80, 600, 40), Color.White);
                 spriteBatch.DrawString(text, "Fighter 1 has won!", new Vector2(Window.ClientBounds.Width / 2 - text.MeasureString("Fighter 1 has won!").X / 2, 100), Color.Magenta);
+                spriteBatch.DrawString(text, "Press R to restart!", new Vector2(Window.ClientBounds.Width / 2 - text.MeasureString("Press R to restart!").X / 2, 200), Color.Magenta);
+                restart = true;
             }
             else if(theWinner == "f2")
             {
                 spriteBatch.DrawString(text, "Fighter 2 has won!", new Vector2(Window.ClientBounds.Width / 2 - text.MeasureString("Fighter 2 has won!").X / 2, 100), Color.Magenta);
+                spriteBatch.DrawString(text, "Press R to restart!", new Vector2(Window.ClientBounds.Width / 2 - text.MeasureString("Press R to restart!").X / 2, 200), Color.Magenta);
+                restart = true;
                 //spriteBatch.Draw(w2, new Rectangle(120, 80, 600, 40), Color.White);
             }
 
-
+//#if DEBUG
+//            spriteBatch.DrawString(text, "time: " + f1.Delay.ElapsedMilliseconds.ToString(), new Vector2(100, 100), Color.Magenta);
+//#endif
             //Health bar
-            spriteBatch.Draw(healthText, new Rectangle(10, 10, f1.Health * 3, 30), Color.White);
-            spriteBatch.Draw(dmgText, new Rectangle(310 - (300 - (f1.Health * 3)), 10, 300 - (f1.Health * 3), 30), Color.White);
+            if (!newGame)
+            {
+                spriteBatch.Draw(healthText, new Rectangle(10, 10, f1.Health * 3, 30), Color.White);
+                spriteBatch.Draw(dmgText, new Rectangle(310 - (300 - (f1.Health * 3)), 10, 300 - (f1.Health * 3), 30), Color.White);
 
-            spriteBatch.Draw(healthText, new Rectangle(490 + ((100 - f2.Health) * 3), 10, f2.Health * 3, 30), Color.White);
-            spriteBatch.Draw(dmgText, new Rectangle(490, 10, 300 - (f2.Health * 3), 30), Color.White);
+                spriteBatch.Draw(healthText, new Rectangle(490 + ((100 - f2.Health) * 3), 10, f2.Health * 3, 30), Color.White);
+                spriteBatch.Draw(dmgText, new Rectangle(490, 10, 300 - (f2.Health * 3), 30), Color.White);
+            }
 
             foreach (SpriteObject obj in allObjects)
             {

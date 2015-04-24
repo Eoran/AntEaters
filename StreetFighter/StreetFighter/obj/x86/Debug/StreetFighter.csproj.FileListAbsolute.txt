@@ -145,3 +145,7 @@ C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\obj\x86\
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\fowardL.kick_S.png
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\newFont.xnb
 C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\newFont.spritefont
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\KenforwardL.Kick_S.gif
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\KenFireball_S.png
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\smallFont.xnb
+C:\Users\Jeppe N Jensen\Documents\AntEaters\StreetFighter\StreetFighter\bin\Windows\Debug\Content\smallFont.spritefont

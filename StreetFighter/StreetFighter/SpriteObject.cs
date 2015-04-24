@@ -21,14 +21,34 @@ namespace StreetFighter
         protected float speed;
         protected Vector2 velocity;
         protected Rectangle[] rectangles;
+
+        public Rectangle[] Rectangles
+        {
+            get { return rectangles; }
+
+        }
+
         protected SpriteEffects effect;
         private int frame;
         protected int currentIndex;
+
+        public int CurrentIndex
+        {
+            get { return currentIndex; }
+        }
+
         private float timeElapsed;
         protected float fps;
         private Vector2 offset;
         private Vector2 boxTexture;
         private Dictionary<String, Animation> animations;
+
+        internal Dictionary<String, Animation> Animations
+        {
+            get { return animations; }
+            set { animations = value; }
+        }
+
         private string animName;
 
         public string AnimName
